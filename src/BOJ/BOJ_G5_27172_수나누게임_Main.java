@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 public class BOJ_G5_27172_수나누게임_Main {
     private static int N;
     private static int[] x;
+
     private static int[] score;
     private static int[] cards;
 

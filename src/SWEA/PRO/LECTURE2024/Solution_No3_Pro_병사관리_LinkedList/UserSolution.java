@@ -1,6 +1,6 @@
-package SWEA2024B.Solution_No3_Pro_병사관리_LinkedList;
+package SWEA.PRO.LECTURE2024.Solution_No3_Pro_병사관리_LinkedList;
 
-class UserSolutionCopy {
+class UserSolution {
     public static class Node {
         int id;
         int team;
@@ -18,7 +18,6 @@ class UserSolutionCopy {
             this.prev = null;
             this.next = null;
         }
-
     }
 
     public static class Team {
@@ -32,8 +31,7 @@ class UserSolutionCopy {
             this.tail = null;
         }
 
-        public void add(int mID, int mTeam, int mScore) {
-            Node newNode = new Node(mID, mTeam, mScore);
+        public void add(Node newNode) {
             if (head == null) {
                 head = newNode;
                 tail = newNode;
@@ -44,62 +42,47 @@ class UserSolutionCopy {
             }
             size++;
         }
-
-        public void delete(int mId) {
-            Node temp = head;
-            while (temp != null) {
-                if (temp.id == mId) {
-                    // check if size == 1
-                    if (size == 1) {
-                        head = null;
-                        tail = null;
-                    } else if (temp.prev == null) {
-                        head = temp.next;
-                        head.prev = null;
-                    } else if (temp.next == null) {
-                        tail = temp.prev;
-                        tail.next = null;
-                    } else {
-                        temp.prev.next = temp.next;
-                        temp.next.prev = temp.prev;
-                    }
-                    size--;
-                    break;
-                }
-                temp = temp.next;
-            }
-        }
     }
 
     public Team[] team = new Team[6];
+    public Node[] soldier = new Node[100001];
 
     public void init() {
         for (int i = 0; i <= 5; i++) {
             team[i] = new Team();
         }
+        for (int i = 0; i < 100001; i++) {
+            soldier[i] = new Node();
+        }
     }
 
     public void hire(int mID, int mTeam, int mScore) {
-        team[mTeam].add(mID, mTeam, mScore);
+        soldier[mID] = new Node(mID, mTeam, mScore);
+        team[mTeam].add(soldier[mID]);
     }
 
     public void fire(int mID) {
-        for (int i = 0; i <= 5; i++) {
-            team[i].delete(mID);
+        if (team[soldier[mID].team].size == 1) {
+            team[soldier[mID].team].head = null;
+            team[soldier[mID].team].tail = null;
+            team[soldier[mID].team].size--;
+        } else if (soldier[mID].prev == null) {
+            team[soldier[mID].team].head = soldier[mID].next;
+            team[soldier[mID].team].head.prev = null;
+            team[soldier[mID].team].size--;
+        } else if (soldier[mID].next == null) {
+            team[soldier[mID].team].tail = soldier[mID].prev;
+            team[soldier[mID].team].tail.next = null;
+            team[soldier[mID].team].size--;
+        } else {
+            soldier[mID].prev.next = soldier[mID].next;
+            soldier[mID].next.prev = soldier[mID].prev;
+            team[soldier[mID].team].size--;
         }
     }
 
     public void updateSoldier(int mID, int mScore) {
-        for (int i = 0; i <= 5; i++) {
-            Node temp = team[i].head;
-            while (temp != null) {
-                if (temp.id == mID) {
-                    temp.score = mScore;
-                    break;
-                }
-                temp = temp.next;
-            }
-        }
+        soldier[mID].score = mScore;
     }
 
     public void updateTeam(int mTeam, int mChangeScore) {
