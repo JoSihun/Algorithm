@@ -1,4 +1,4 @@
-package SWEA2024B.Solution_No3_Pro_병사관리_LinkedList;
+package SWEA.PRO.LECTURE2024.Solution_No3_Pro_병사관리_LinkedList;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

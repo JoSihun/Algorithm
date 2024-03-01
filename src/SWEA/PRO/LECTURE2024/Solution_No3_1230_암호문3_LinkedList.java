@@ -1,4 +1,4 @@
-package SWEA2024B;
+package SWEA.PRO.LECTURE2024;
 
 import java.io.*;
 import java.util.StringTokenizer;
