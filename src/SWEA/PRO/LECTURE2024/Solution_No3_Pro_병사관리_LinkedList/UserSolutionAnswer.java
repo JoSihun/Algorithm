@@ -1,20 +1,24 @@
 package SWEA.PRO.LECTURE2024.Solution_No3_Pro_병사관리_LinkedList;
 
-class UserSolution {
+class UserSolutionAnswer {
     public static class Node {
         int id;
-        int team;
         int score;
         Node next;
 
         Node() {
         }
 
-        Node(int id, int team, int score) {
+        Node(int id, int score) {
             this.id = id;
-            this.team = team;
             this.score = score;
             this.next = null;
+        }
+
+        Node(int id, int score, Node next) {
+            this.id = id;
+            this.score = score;
+            this.next = next;
         }
     }
 
@@ -27,7 +31,6 @@ class UserSolution {
     public int[] num = new int[100055];      // num[i] := ID 가 i 인 사람의 team 번호
     public int[] score = new int[100055];  // score[i] := ID 가 i 인 사람의 최신 버전
     public Node[] node = new Node[200055];
-    public Team[] team = new Team[6];
 
     public Node createNode(int id, Node next) {
         Node ret = node[size++];
@@ -36,6 +39,9 @@ class UserSolution {
         ret.score = ++score[id];
         return ret;
     }
+
+
+    public Team[] team = new Team[6];
 
     public void init() {
         size = 0;
