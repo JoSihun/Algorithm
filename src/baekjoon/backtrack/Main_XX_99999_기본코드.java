@@ -21,7 +21,7 @@ public class Main_XX_99999_기본코드 {
 
         for (int i = 0; i < N; i++) {
             selected[depth] = numbers[i];
-            combination1(depth + 1);
+            permutation1(depth + 1);
         }
     }
 
@@ -40,7 +40,7 @@ public class Main_XX_99999_기본코드 {
             if (visited[i]) continue;
             visited[i] = true;
             selected[depth] = numbers[i];
-            combination2(depth + 1);
+            permutation2(depth + 1);
             visited[i] = false;
         }
     }
@@ -58,7 +58,7 @@ public class Main_XX_99999_기본코드 {
 
         for (int i = start; i < N; i++) {
             selected[depth] = numbers[i];
-            permutation1(i, depth + 1);
+            combination1(i, depth + 1);
         }
     }
 
@@ -75,7 +75,7 @@ public class Main_XX_99999_기본코드 {
 
         for (int i = start; i < N; i++) {
             selected[depth] = numbers[i];
-            permutation2(i + 1, depth + 1);
+            combination2(i + 1, depth + 1);
         }
     }
 
