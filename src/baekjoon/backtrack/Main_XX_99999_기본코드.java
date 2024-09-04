@@ -9,7 +9,7 @@ public class Main_XX_99999_기본코드 {
     public static boolean[] visited;
 
     // 1. 중복 허용, 순서 고려 (순열)
-    public static void combination1(int depth) {
+    public static void permutation1(int depth) {
         /* 같은 숫자 여러번 선택 가능, 순서가 다르면 중복이 아닌 것으로 처리
          * { 1, 1, 1 } 선택 가능 (중복 허용)
          * { 1, 1, 2 }, { 2, 1, 1 } 선택 가능 (순서 고려)
@@ -26,7 +26,7 @@ public class Main_XX_99999_기본코드 {
     }
 
     // 2. 중복 불가, 순서 고려 (순열)
-    public static void combination2(int depth) {
+    public static void permutation2(int depth) {
         /* 같은 숫자 여러번 선택 불가능, 순서가 다르면 중복이 아닌 것으로 처리
          * { 1, 1, 1 } 선택 불가능 (중복 불가)
          * { 1, 2, 3 }, { 3, 2, 1 } 선택 가능 (순서 고려)
@@ -46,7 +46,7 @@ public class Main_XX_99999_기본코드 {
     }
 
     // 3. 중복 허용, 순서 무관 (조합)
-    public static void permutation1(int start, int depth) {
+    public static void combination1(int start, int depth) {
         /* 같은 숫자 여러번 선택 가능, 순서가 다르면 중복으로 처리
          * { 1, 1, 1 } 선택 가능 (중복 허용)
          * { 1, 1, 2 }, { 2, 1, 1 } 선택 불가능 (순서 무관)
@@ -63,7 +63,7 @@ public class Main_XX_99999_기본코드 {
     }
 
     // 4. 중복 불가, 순서 무관 (조합)
-    public static void permutation2(int start, int depth) {
+    public static void combination2(int start, int depth) {
         /* 같은 숫자 여러번 선택 불가능, 순서가 다르면 중복으로 처리
          * { 1, 1, 1 } 선택 불가능 (중복 불가)
          * { 1, 2, 3 }, { 3, 2, 1 } 선택 불가능 (순서 무관)
@@ -85,9 +85,9 @@ public class Main_XX_99999_기본코드 {
         selected = new int[M];
         visited = new boolean[N];
 
-        combination1(0);            // 중복 허용, 순서 고려 (순열)
-        combination2(0);            // 중복 불가, 순서 고려 (순열)
-        permutation1(0, 0);     // 중복 허용, 순서 무관 (조합)
-        permutation2(0, 0);     // 중복 불가, 순서 무관 (조합)
+        permutation1(0);            // 중복 허용, 순서 고려 (순열)
+        permutation2(0);            // 중복 불가, 순서 고려 (순열)
+        combination1(0, 0);     // 중복 허용, 순서 무관 (조합)
+        combination2(0, 0);     // 중복 불가, 순서 무관 (조합)
     }
 }
