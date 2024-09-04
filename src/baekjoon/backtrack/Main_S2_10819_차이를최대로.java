@@ -10,7 +10,7 @@ public class Main_S2_10819_차이를최대로 {
     public static int[] selected;
     public static boolean[] visited;
 
-    // 중복 불가, 순서 고려
+    // 중복 불가, 순서 고려 (순열)
     public static void backtrack(int depth) {
         if (depth == N) {
             answer = Math.max(answer, calculate());
