@@ -1,4 +1,4 @@
-package baekjoon.unclassified;
+package baekjoon.unclassified.bronze;
 
 public class Main_B5_02393_Rook {
     public static void main(String[] args) {
