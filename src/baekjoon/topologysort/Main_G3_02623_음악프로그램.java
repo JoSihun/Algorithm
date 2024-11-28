@@ -1,4 +1,4 @@
-package baekjoon.topology_sort;
+package baekjoon.topologysort;
 
 import java.io.*;
 import java.util.*;
