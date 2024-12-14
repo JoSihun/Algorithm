@@ -20,8 +20,7 @@ public class Main_S4_09843_LVM {
             String command = parts[0];
 
             if (command.equals("PUSH")) {
-                int value = Integer.parseInt(parts[1]);
-                stack.push(value);
+                stack.push(Integer.parseInt(parts[1]));
             } else if (command.equals("STORE")) {
                 register = stack.pop();
             } else if (command.equals("LOAD")) {
