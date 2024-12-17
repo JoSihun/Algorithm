@@ -3,7 +3,6 @@ package baekjoon.unclassified.bronze;
 import java.io.*;
 import java.util.*;
 
-// https://www.acmicpc.net/problem/30008
 public class Main_B4_30008_준영이의등급 {
     private static int getGrade(int P) {
         if (P <= 4) return 1;
